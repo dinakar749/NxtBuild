@@ -32,6 +32,10 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 
 
+app.get('/', (req, res) => {
+  res.json({ success: true, message: 'AI Web App Builder API is running smoothly!' });
+});
+
 app.use('/api', routes);
 
 

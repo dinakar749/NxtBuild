@@ -1,9 +1,9 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const BASE_URL = import.meta.env.VITE_API_URL 
-  ? `${import.meta.env.VITE_API_URL}/api` 
-  : 'http://localhost:5000/api';
+const rawUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5000').trim();
+const cleanUrl = rawUrl.replace(/\/+$/, '');
+const BASE_URL = cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
 
 
 
