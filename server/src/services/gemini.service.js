@@ -10,6 +10,7 @@ export const askGemini = async (prompt) => {
 
     return response;
   } catch (error) {
-    throw new Error('The AI service is currently unavailable. Please try again later.');
+    console.error('Gemini Service Error:', error.message);
+    throw new Error(error.message || 'The AI service is currently unavailable. Please try again later.');
   }
 };
